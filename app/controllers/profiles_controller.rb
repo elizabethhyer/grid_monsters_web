@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   post "/profiles" do
-    @profile = (name: params[:name], species: params[:species], bio: params[:bio])
+    @profile = Profile.new(params)
     erb :'/profiles/show'
   end
 
