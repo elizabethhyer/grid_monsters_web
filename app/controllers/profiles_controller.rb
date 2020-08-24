@@ -1,19 +1,23 @@
 class ProfilesController < ApplicationController
 
   get "/profiles" do
-    @profiles = ["Dracula", "Mummy", "The Butcher"]
+    # @profiles = ["Dracula", "Mummy", "The Butcher"]
     erb :"/profiles/index"
   end
 
-  # # GET: /profiles/new
-  # get "/profiles/new" do
-  #   erb :"/profiles/new.html"
-  # end
+  get "/profiles/new" do
+    erb :'/profiles/new'
+  end
 
-  # # POST: /profiles
-  # post "/profiles" do
-  #   redirect "/profiles"
-  # end
+  post "/profiles" do
+    @profile = (name: params[:name], species: params[:species], bio: params[:bio])
+    erb :'/profiles/show'
+  end
+
+  get "/profiles/:id" do 
+    @profile = Profile.find(params[:id])
+    erb :'/profiles/show'
+  end 
 
   # # GET: /profiles/5
   # get "/profiles/:id" do
