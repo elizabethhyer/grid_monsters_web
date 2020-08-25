@@ -26,11 +26,12 @@ class ProfilesController < ApplicationController
 
   patch "/profiles/:id" do 
     @profile = Profile.find_by(id: params[:id])
-    @profile.update(params)
+    @profile.update(params[:profile])
+    erb :'profiles/show'
   end 
 
-  # # DELETE: /profiles/5/delete
-  # delete "/profiles/:id/delete" do
-  #   redirect "/profiles"
-  # end
+  delete "/profiles/:id/delete" do 
+
+  end 
+
 end
