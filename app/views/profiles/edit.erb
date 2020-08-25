@@ -1,1 +1,7 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<form action="/profiles/<%=@profile.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <p>Name:<input type="text" name="name" value="<%=@profile.name%>"></p><br/>
+    <p>Species:<input type="text" name="species" value="<%=@profile.species%>"></p><br/>
+    <p>Bio:<textarea id="bio" name="bio" value="<%=@profile.bio%>"></textarea></p><br/>
+    <input type="submit" value="Edit Profile">
+</form>

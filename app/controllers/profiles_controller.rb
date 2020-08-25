@@ -15,24 +15,19 @@ class ProfilesController < ApplicationController
   end
 
   get "/profiles/:id" do 
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find_by(params)
     erb :'/profiles/show'
   end 
 
-  # # GET: /profiles/5
-  # get "/profiles/:id" do
-  #   erb :"/profiles/show.html"
-  # end
+  get "/profiles/:id/edit" do 
+    @profile = Profile.find_by(params)
+    erb :'/profiles/edit'
+  end 
 
-  # # GET: /profiles/5/edit
-  # get "/profiles/:id/edit" do
-  #   erb :"/profiles/edit.html"
-  # end
-
-  # # PATCH: /profiles/5
-  # patch "/profiles/:id" do
-  #   redirect "/profiles/:id"
-  # end
+  patch "/profiles/:id" do 
+    @profile = Profile.find_by(id: params[:id])
+    @profile.update(params)
+  end 
 
   # # DELETE: /profiles/5/delete
   # delete "/profiles/:id/delete" do
