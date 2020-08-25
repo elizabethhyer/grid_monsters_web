@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   get "/profiles" do
-    # @profiles = ["Dracula", "Mummy", "The Butcher"]
+    @profiles = Profile.all
     erb :"/profiles/index"
   end
 
@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   post "/profiles" do
-    @profile = Profile.new(params)
+    @profile = Profile.create(params)
     erb :'/profiles/show'
   end
 
