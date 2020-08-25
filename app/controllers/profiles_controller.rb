@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 
   get "/profiles" do
     @profiles = Profile.all
-    erb :"/profiles/index"
+    erb :'/profiles/index'
   end
 
   get "/profiles/new" do
@@ -11,12 +11,15 @@ class ProfilesController < ApplicationController
 
   post "/profiles" do
     @profile = Profile.create(params)
-    erb :'/profiles/show'
+    redirect "/profiles/#{@profile.id}"
   end
 
   get "/profiles/:id" do 
-    @profile = Profile.find_by(params)
-    erb :'/profiles/show'
+    if @profile = Profile.find_by(params)
+      erb :'/profiles/show'
+    else 
+      redirect '/profiles' #triggers a new request/response cycle
+    end 
   end 
 
   get "/profiles/:id/edit" do 
@@ -30,8 +33,10 @@ class ProfilesController < ApplicationController
     erb :'profiles/show'
   end 
 
-  delete "/profiles/:id/delete" do 
-
+  delete "/profiles/:id" do 
+    @profile = Profile.find_by(id: params[:id])
+    @profile.delete
+    redirect '/profiles'
   end 
 
 end
