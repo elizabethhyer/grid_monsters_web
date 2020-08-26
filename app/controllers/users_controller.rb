@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
   get "/signup" do
+    if current_user
+      redirect "/profiles"
+    end 
     erb :'users/signup'
   end
 
@@ -21,6 +24,9 @@ class UsersController < ApplicationController
   end
 
   get "/login" do
+    if current_user
+      redirect "/profiles"
+    end 
     erb :'users/login'
   end
 
@@ -45,8 +51,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-
-# errors:
-# if nothing is added to the form in signup or login, there is no error handling
-# account is created, but login takes them back to the login page
