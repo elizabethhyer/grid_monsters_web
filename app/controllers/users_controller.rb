@@ -4,16 +4,18 @@ class UsersController < ApplicationController
     erb :'users/signup'
   end
 
-  post "/signup" do
-    if params[:username] == "" || params[:password] == ""
-      redirect "/failure"
-    else 
-      User.create(username: params[:username], password: params[:password])
-      redirect "/"
-    end 
+  post "/users" do
+    user = User.create(params)
+    session[:user_id] = user.id
+    redirect "users/#{user.id}"
   end
 
-  get '/account' do
+  get "/users/:id" do
+    @user = User.find_by(params) 
+    erb :'users/show'
+  end 
+
+  get "/account" do
     @user = User.find(session[:user_id])
     erb :home
   end
@@ -23,13 +25,12 @@ class UsersController < ApplicationController
   end
 
   post "/login" do
-    user = User.find_by(:username => params[:username])
-    if user && 
-      user.authenticate(params[:password])
+    user = User.find_by(username: params[:username])
+    if user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/home"
+      redirect "users/#{user.id}"
     else 
-      redirect "/failure"
+      redirect '/login'
     end 
   end
 
@@ -41,35 +42,5 @@ class UsersController < ApplicationController
     session.clear
     redirect "/"
   end
-
-  # # GET: /users/new
-  # get "/users/new" do
-  #   erb :"/users/new.html"
-  # end
-
-  # # POST: /users
-  # post "/users" do
-  #   redirect "/users"
-  # end
-
-  # # GET: /users/5
-  # get "/users/:id" do
-  #   erb :"/users/show.html"
-  # end
-
-  # # GET: /users/5/edit
-  # get "/users/:id/edit" do
-  #   erb :"/users/edit.html"
-  # end
-
-  # # PATCH: /users/5
-  # patch "/users/:id" do
-  #   redirect "/users/:id"
-  # end
-
-  # # DELETE: /users/5/delete
-  # delete "/users/:id/delete" do
-  #   redirect "/users"
-  # end
 
 end

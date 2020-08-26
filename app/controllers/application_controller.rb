@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    session[:new_key] = "value"
     erb :'home'
   end
 
