@@ -5,7 +5,9 @@
 
 <br/>
 
-<form action="/profiles/<%=@profile.id%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="DESTROY MONSTER">
-</form>
+<% if @profile.user == current_user %> 
+    <form action="/profiles/<%=@profile.id%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="DESTROY MONSTER">
+    </form>
+<% end %>
