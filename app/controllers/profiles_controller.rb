@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
 
   get "/profiles" do
-    redirect_if_not_logged_in
     @profiles = Profile.all
     erb :'/profiles/index'
   end

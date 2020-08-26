@@ -5,6 +5,15 @@
 
     </div>
 
+    <a href="/profiles">Profiles</a>
+    <% if current_user %>
+        <a href="/logout">Log Out</a>
+        <a href="/profiles/new">Create a New Profile</a>
+    <% end %>
+    <% if !current_user %>
+        <a href="/login">Log In</a>
+    <% end %>
+
     <div class="container">
         <%= yield%>    
     </div>
