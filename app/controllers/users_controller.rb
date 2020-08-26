@@ -44,3 +44,7 @@ class UsersController < ApplicationController
   end
 
 end
+
+
+# errors:
+# if nothing is added to the form in signup or login, there is no error handling
