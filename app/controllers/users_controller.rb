@@ -7,10 +7,14 @@ class UsersController < ApplicationController
     erb :'users/signup'
   end
 
-  post "/users" do
+  post "/users" do #this is the post for signup, posting to users
     user = User.create(params)
-    session[:user_id] = user.id
-    redirect "users/#{user.id}"
+    if user.valid?
+      session[:user_id] = user.id
+      redirect "users/#{user.id}"
+    else 
+      redirect '/failure'
+    end 
   end
 
   get "/users/:id" do
