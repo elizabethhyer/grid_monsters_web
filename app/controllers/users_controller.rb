@@ -26,10 +26,11 @@ class UsersController < ApplicationController
 
   post "/login" do
     user = User.find_by(username: params[:username])
-    if user.authenticate(params[:password])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "users/#{user.id}"
     else 
+      flash[:message] = "Invalid Login"
       redirect '/login'
     end 
   end
@@ -48,3 +49,4 @@ end
 
 # errors:
 # if nothing is added to the form in signup or login, there is no error handling
+# account is created, but login takes them back to the login page
