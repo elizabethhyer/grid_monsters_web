@@ -20,7 +20,7 @@ thats_a_wrap = Profile.create(:name => "The Mummy King", :species => "undead hum
 
 blobby_knight = Profile.create(:name => "The Blob", :species => "blob", :age => 1, :bio => "I'm really tired of people telling me I don't look the same in person as I do in my photos. Please, I'm just a blob, standing in front of a computer, saying that if you reject me because of my looks, I'm going to get just a little bit blobbier. (I'm going to absorb you, if I hadn't made that clear)")
 
-the_gelatinous_curtain = Profile.create(:name => "Gelatinous Cube", :species => "standard DND monster", :age => 1,000,000,000, :bio => "Honestly I am too old for the games... you're either interested or not. Likes: picking fights with bands of travelers; dislikes: vegans.")
+the_gelatinous_curtain = Profile.create(:name => "Gelatinous Cube", :species => "standard DND monster", :age => 1000000000, :bio => "Honestly I am too old for the games... you're either interested or not. Likes: picking fights with bands of travelers; dislikes: vegans.")
 
 ghost = Profile.create(:name => "Dark Spirit", :species => "ghost", :age => 30, :bio => "I think there's so much more to be said for how romantic it is to haunt couples on their moonlit walks. Too many other ghosts stick to houses or graveyards, and I just want someone who craves a bit of ADVENTURE and ROMANCE, you know?")
 

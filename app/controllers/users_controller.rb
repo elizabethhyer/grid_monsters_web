@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
   get "/login" do
     if current_user
-      redirect "/profiles"
     end 
     erb :'users/login'
   end
