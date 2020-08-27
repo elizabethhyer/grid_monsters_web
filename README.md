@@ -13,14 +13,14 @@ To run this application in your local environment, please follow these steps:
 
 
 ## Contributing
-Bug reports and pull requests are welcome on Github at: https://github.com/dougschallmoser/nat-park-rev-sinatra-app.
+Bug reports and pull requests are welcome on Github at: https://github.com/elizabethhyer/grid_monsters_web.
 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-Authors
+## Authors
 Elizabeth Hyer - All work - ElizabethHyer
-License
+## License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
 
-Acknowledgments
+## Acknowledgments
 I would like to acknowledge Flatiron School for explaining the framework of web applications clearly, thebrianemory for creating the invaluable Corneal gem, and Jon Duckett for writing the quintessential reference guide on HTML and CSS for beginners.
