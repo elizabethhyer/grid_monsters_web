@@ -1,0 +1,13 @@
+h1 { 
+    font-family: 'Creepster', cursive;
+    color: green;
+}
+
+h2, h3, h4, p {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+    font-family: 'Creepster', cursive;
+}
+
