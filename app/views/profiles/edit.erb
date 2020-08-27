@@ -1,3 +1,5 @@
+<div id="body">
+
 <form action="/profiles/<%=@profile.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
     <p>Name:<input type="text" name="profile[name]" value="<%=@profile.name%>"></p><br/>
@@ -6,3 +8,5 @@
     <p>Bio:<textarea id="bio" name="profile[bio]"><%=@profile.bio%></textarea></p><br/>
     <input type="submit" value="Edit Profile">
 </form>
+
+</div>
