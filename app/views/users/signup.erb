@@ -1,3 +1,9 @@
+<ul>
+<%flash[:message] && flash[:message].each do |m| %>
+  <li><%=m%></li>
+<% end %>
+</ul>
+
 <h3>Sign Up</h3>
 <form action="/users" method="POST">
   <p>Username: <input type="text" name="username" placeholder="Username:"></p>

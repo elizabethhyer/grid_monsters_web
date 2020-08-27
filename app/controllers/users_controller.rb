@@ -11,13 +11,14 @@ class UsersController < ApplicationController
     user = User.create(params)
     if user.valid?
       session[:user_id] = user.id
-      redirect "users/#{user.name}"
+      redirect "users/#{user.username}"
     else 
-      redirect '/failure'
+      flash[:message] = user.errors.full_messages
+      redirect '/signup'
     end 
   end
 
-  get "/users/:name" do
+  get "/users/:username" do
     @user = User.find_by(params) 
     erb :'users/show'
   end 
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "users/#{user.name}"
+      redirect "users/#{user.username}"
     else 
       redirect '/failure'
     end 
