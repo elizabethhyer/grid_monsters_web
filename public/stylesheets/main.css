@@ -13,8 +13,14 @@ h2, h3, h4, p {
     color: #0C1602;
 }
 
-a {
+a:link {
     font-family: 'Creepster', cursive;
+    color: #8E2BA2;
+}
+
+a:visited {
+    font-family: 'Creepster', cursive;
+    color: green;
 }
 
 #nav {
