@@ -6,14 +6,23 @@ class ProfilesController < ApplicationController
   end
 
   get "/profiles/new" do
-    redirect_if_not_logged_in
-    erb :'/profiles/new'
+    if logged_in?
+      erb :'/profiles/new'
+    else 
+      redirect_if_not_logged_in
+    end 
   end
 
   post "/profiles" do
+    if logged_in?
+      @profile = current_user.profiles.build(params)
+      if @profile.save 
+        redirect to "/profiles/#{@profile.id}"
+      else 
+        redirect to "/profiles/new"
+      end 
+    end 
     redirect_if_not_logged_in
-    @profile = Profile.create(params)
-    redirect "/profiles/#{@profile.id}"
   end
 
   get "/profiles/:id" do 
