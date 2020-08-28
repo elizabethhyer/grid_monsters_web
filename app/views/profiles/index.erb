@@ -2,10 +2,10 @@
 
 <h1>There are eligible monsters in your area!!!!!</h1>
 
-<ul>
+
     <% @profiles.each do |p| %>
-    <li><a href="/profiles/<%=p.id%>"><%= p.name %> - <%= p.species %></a></li>
+        <li><a href="/profiles/<%=p.id%>"><%= p.name %> - <%= p.species %></a></li>
     <% end %>
-</ul>
+
 
 </div>
