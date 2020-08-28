@@ -1,14 +1,13 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     background-color: #0C1602; 
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 h1 { 
     font-family: 'Creepster', cursive;
+    font-size: 48px;
     color: green;
 }
 
@@ -30,6 +29,8 @@ a:visited {
 #nav {
     background-color: #BDC7B4;
     padding: 10px 0px 5px 0px;
+    width: 80%;
+    margin: auto;
 }
 
 #header {
@@ -38,8 +39,11 @@ a:visited {
     padding: 10px 0px 5px 0px;
 }
 
-#body {
+.container {
     background-color: #ADBA9F;
     margin-top: 20px;
     padding: 10px 0px 5px 0px;
+    width: 80%;
+    margin: auto;
 }
+
