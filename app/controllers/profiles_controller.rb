@@ -48,6 +48,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by(id: params[:id])
     if check_owner(@profile)
     @profile.update(params[:profile])
+    else 
+      redirect "/profiles"
     end 
     erb :'profiles/show'
   end 

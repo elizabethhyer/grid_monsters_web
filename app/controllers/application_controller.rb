@@ -16,6 +16,7 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
+   
     def logged_in?
       !!session[:user_id]
     end
@@ -31,8 +32,9 @@ class ApplicationController < Sinatra::Base
     end
 
     def check_owner(profile)
-      profile.user == current_user
-    end 
-  end
+      profile && profile.user == current_user
+    end
+
+  end 
 
 end

@@ -20,6 +20,9 @@ class UsersController < ApplicationController
 
   get "/users/:username" do
     @user = User.find_by(params) 
+    if @user == nil
+      redirect '/'
+    end 
     erb :'users/show'
   end 
 
