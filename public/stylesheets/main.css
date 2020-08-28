@@ -37,6 +37,8 @@ a:visited {
     color: green;
     background-color: #CED8C4;
     padding: 10px 0px 5px 0px;
+    width: 80%;
+    margin: auto;
 }
 
 .container {
