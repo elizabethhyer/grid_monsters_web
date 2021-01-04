@@ -23,12 +23,14 @@
     <% if current_user %>
         <a href="/logout">Log Out</a>
         <a href="/profiles/new">Create a New Profile</a>
-        <a href="/users/<%=current_user.username%>">View Your Monsters</a>
+        <a href="/users/<%=current_user.username%>">View Your Monsters</a><br/>
     <% end %>
     
     <% if !current_user %>
-        <a href="/login">Log In</a>
+        <a href="/login">Log In</a><br/>
     <% end %>
+
+    <a href='https://github.com/elizabethhyer/grid_monsters_web'>View on Github</a>
 
     </div>
 

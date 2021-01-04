@@ -13,6 +13,12 @@ class ProfilesController < ApplicationController
     end 
   end
 
+  get "/profiles/newest" do
+    redirect_if_not_logged_in
+    @profile = Profile.last
+    redirect "/profiles/#{@profile.id}"
+  end 
+
   post "/profiles" do
     if logged_in?
       @profile = current_user.profiles.build(params)
